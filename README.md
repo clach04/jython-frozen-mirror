@@ -2,7 +2,7 @@
 
 Hacked versions - since Bitbucket drop support of Mercurial, using this to host jar files and changes.
 
-My changes are still in mercurial and not moved to git.
+My changes are still in mercurial and not moved to git. See https://github.com/clach04/jython-frozen-mirror/wiki
 
   * Upstream (git) https://github.com/jython/jython
 
