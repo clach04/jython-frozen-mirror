@@ -1,88 +1,69 @@
 # Jython: Python for the Java Platform
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.python/jython-standalone/badge.svg)](https://search.maven.org/artifact/org.python/jython-standalone/)
-[![Javadocs](https://www.javadoc.io/badge/org.python/jython-standalone.svg)](https://www.javadoc.io/doc/org.python/jython-standalone)
 
-This is the development repository of Jython,
-the implementation of Python 2.7 in Java.
-Along with good (not perfect!) language
-and runtime compatibility with CPython 2.7,
-Jython 2.7 provides substantial support of the Python ecosystem.
-This includes built-in support of *pip/setuptools*
-(you can use `bin/pip` if the targets do not include `C` extensions)
-and a native launcher for Windows (`bin/jython.exe`)
-that works essentially as the `python` command.
+Hacked versions - since Bitbucket drop support of Mercurial, using this to host jar files and changes.
 
-Jim Baker presented a talk at PyCon 2015 about Jython 2.7,
-including demos of new features: https://www.youtube.com/watch?v=hLm3garVQFo
+My changes are still in mercurial and not moved to git.
 
-See [ACKNOWLEDGMENTS](ACKNOWLEDGMENTS) for details about Jython's copyright,
-license, contributors, and mailing lists.
-Consult [NEWS](NEWS) for detailed release notes, including bugs fixed,
-backwards breaking changes, and new features.
-We sincerely thank all who contribute to Jython, by bug reports, patches,
-pull requests, documentation changes and e-mail discussions.
+  * Upstream (git) https://github.com/jython/jython
 
-## How to build Jython
+## Jython 2.5.1 hacked
 
-The project uses Mercurial for version-control,
-and the master repository is at https://hg.python.org/jython/,
-while the repository on GitHub is just a mirror of that.
-You may clone either repository to create a buildable copy of the latest state
-of the Jython source.
+https://github.com/clach04/jython-frozen-mirror/releases/tag/v2.5.1_hacked
 
-### Build using `ant` for development
+Patched jython 2.5.1 for Java 5 - remove PyDoc, pydoc as included with 2.5.1 does NOT work, causing failures with things like CherryPy if it finds a pydoc implementation (it works fine if its missing, it expects it to work if it is present). This was built by hand by removing pydoc.
 
-Jython is normally built using `ant`.
-It is necessary to have Ant and at least a Java 7 SDK on the path.
-To build Jython development use, we generally use the command:
-```
-ant
-```
-This leaves an executable in `dist/bin`
-that you may run from the check-out root with:
-```
-dist/bin/jython
-```
-Other `ant` targets exist, notably `clean`, and `jar`.
+## Jython 2.2.1 hacked
 
-You can test your build of Jython (by running the regression tests),
-with the command:
-```
-dist/bin/jython -m test.regrtest -e -m regrtest_memo.txt
-```
+https://github.com/clach04/jython-frozen-mirror/releases/tag/v2.2.1_hacked
 
-### Build an installer using `ant`
+Patched jython 2.2.1 for Java 1.4 - support more modern Windows operating systems and Python code; Windows 7, 8 and 10 support, adds libraries to make running code easier (e.g. logging, shlex.split(), optparse/optik, and Decimal) - see patch_jython221.py for how to build a new jar file
 
-If you want to install a snapshot build of Jython, use the command:
-```
-ant installer
-```
-This will leave you with a snapshot installer JAR in `dist`,
-that you can run with:
-```
-java -jar jython-installer.jar
-```
-for the graphical installer, or:
-```
-java -jar jython-installer.jar --console
-```
-For the console version. (A `--help` option gives you the full story.)
+    changeset:   6603:3d1a0f68bea4
+    branch:      2.2
+    tag:         tip
+    user:        clach04
+    date:        Mon Apr 23 13:55:03 2012 -0700
+    summary:     shlex.split() support.
 
-### Build a JAR using Gradle
+    changeset:   6602:6d5812585aa7
+    branch:      2.2
+    user:        clach04
+    date:        Mon Apr 16 12:51:09 2012 -0700
+    summary:     Added optparse/optik back port.
 
-Experimentally, we have a Gradle build that results in a family of JARs,
-and a POM.
-This is intended to provide the Jython core in a form that Gradle and Maven
-users can consume as a dependency.
-Invoke this with:
-```
-PS> .\gradlew publish
-```
-and a JAR and POM are delivered to ` .build2\repo` 
+    changeset:   6601:490c45b77dc1
+    branch:      2.2
+    user:        clach04
+    date:        Mon Apr 16 12:38:39 2012 -0700
+    summary:     Decimal support back port.
 
-Whereas the JARs delivered by the installer are somewhat "fat",
-embedding certain dependencies in shaded (renamed) form,
-the JARs from the Gradle build are "spare"
-and cite their dependencies externally through a POM.
-The project would like to know if this is being done suitably
-for downstream use.
+    changeset:   6600:495fde674c64
+    branch:      2.2
+    user:        clach04
+    date:        Mon Apr 16 12:36:39 2012 -0700
+    summary:     Document current patch limitations.
+
+    changeset:   6599:7133250104ae
+    branch:      2.2
+    user:        clach04
+    date:        Mon Apr 16 12:30:46 2012 -0700
+    summary:     Last change did NOT patch javashell.py for Win7 support.
+
+    changeset:   6598:6d6a76c7e3fd
+    branch:      2.2
+    user:        clach04
+    date:        Mon Apr 16 12:28:37 2012 -0700
+    summary:     Added logging module and a way to patch existing jar files.
+
+    changeset:   6597:ffcf04e6c3b5
+    branch:      2.2
+    user:        clach04
+    date:        Mon Apr 16 11:51:46 2012 -0700
+    summary:     Added my Windows 7 (etc.) change to allow Windows support for spawning exes, environment variable access, and correct file path support.
+
+    changeset:   6596:a9bfd397931b
+    branch:      2.2
+    parent:      6412:bed9f9de4ef3
+    user:        clach04
+    date:        Mon Apr 16 11:45:12 2012 -0700
+    summary:     Added unsupported 2.2 note to readme.
