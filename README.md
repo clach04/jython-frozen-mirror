@@ -12,11 +12,15 @@ https://github.com/clach04/jython-frozen-mirror/releases/tag/v2.5.1_hacked
 
 Patched jython 2.5.1 for Java 5 - remove PyDoc, pydoc as included with 2.5.1 does NOT work, causing failures with things like CherryPy if it finds a pydoc implementation (it works fine if its missing, it expects it to work if it is present). This was built by hand by removing pydoc.
 
+NO Jython changes, only to modules.
+
 ## Jython 2.2.1 hacked
 
 https://github.com/clach04/jython-frozen-mirror/releases/tag/v2.2.1_hacked
 
 Patched jython 2.2.1 for Java 1.4 - support more modern Windows operating systems and Python code; Windows 7, 8 and 10 support, adds libraries to make running code easier (e.g. logging, shlex.split(), optparse/optik, and Decimal) - see patch_jython221.py for how to build a new jar file
+
+NO Jython changes, only to modules.
 
     changeset:   6603:3d1a0f68bea4
     branch:      2.2
