@@ -2,9 +2,11 @@
 
 Hacked versions - since Bitbucket drop support of Mercurial, using this to host jar files and changes.
 
-My changes are still in mercurial and not moved to git. See https://github.com/clach04/jython-frozen-mirror/wiki
+My changes are still in mercurial and not moved to git, see https://hg.sr.ht/~clach04/jython for branches/changes. See https://github.com/clach04/jython-frozen-mirror/wiki for more information.
 
   * Upstream (git) https://github.com/jython/jython
+
+Also see related jyjdbc project https://hg.sr.ht/~clach04/jyjdbc/ a superior replacement for zxJDBC when using Jython/Python with JDBC drivers and SQL databases.
 
 ## Jython 2.5.1 hacked
 
